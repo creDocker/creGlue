@@ -5,12 +5,12 @@
 #
 
 # Pull base image.
-FROM tamboraorg/creubuntu:2016.0
+FROM tamboraorg/creubuntu:0.2020
 MAINTAINER Michael Kahle <michael.kahle@yahoo.de>
 
-ARG BUILD_YEAR=2016
+ARG BUILD_YEAR=2020
 ARG BUILD_MONTH=0
-ARG BUILD_TAG=2016.0
+ARG BUILD_TAG=0.2020
 
 ENV YEAR $BUILD_YEAR
 ENV MONTH $BUILD_MONTH
@@ -24,15 +24,6 @@ LABEL Name="Glue for CRE" \
       Version=$DOCKER_GEN_VERSION \
       OS="Ubuntu:$UBUNTU_VERSION" \
       Build_=$BUILD_TAG 
-
-## only available inside hooks...
-#      SOURCE_BRANCH=$SOURCE_BRANCH \
-#      SOURCE_COMMIT=$SOURCE_COMMIT \
-#      COMMIT_MSG=$COMMIT_MSG \
-#      DOCKER_REPO=$DOCKER_REPO \
-#      DOCKERFILE_PATH=$DOCKERFILE_PATH \
-#      CACHE_TAG=$CACHE_TAG \
-#      IMAGE_NAME=$IMAGE_NAME \
 
 # Install docker-gen (generates files from templates with docker data filled in)
 RUN wget https://github.com/jwilder/docker-gen/releases/download/$DOCKER_GEN_VERSION/docker-gen-linux-amd64-$DOCKER_GEN_VERSION.tar.gz \

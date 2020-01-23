@@ -6,8 +6,14 @@ year=`date -u +%Y`
 tag=$DOCKER_REPO:$DOCKER_TAG
 if [ "latest" == "$DOCKER_TAG" ] ; then
   tag=$DOCKER_REPO:0.$year
+<<<<<<< Updated upstream
 
   docker tag $IMAGE_NAME $tag
   docker push $tag
 
 fi
+=======
+fi
+docker tag $IMAGE_NAME $tag
+docker push $tag
+>>>>>>> Stashed changes

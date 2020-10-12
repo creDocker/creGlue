@@ -10,6 +10,12 @@ docker-compose >= 3:
 
 
 
+https://github.com/jwilder/docker-gen
+https://golang.org/pkg/text/template/#hdr-Functions
+
+
+
+
 
                            
 

@@ -5,6 +5,8 @@ if [ ! -f /cre/versions.txt ]; then
     exit 1
 fi
 
+cat /cre/versions.txt
+
 if [ ! -f /cre/glue-procfile ]; then
     echo "[FAIL]: File /cre/glue-procfile not found!"
     exit 1

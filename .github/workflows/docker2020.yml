@@ -39,7 +39,7 @@ jobs:
           docker run tamboraorg/creglue:check20 /cre/glue-test.sh 
       -
         name: Build and push
-        id: docker_build
+        id: docker_push
         uses: docker/build-push-action@v2
         with:
           file: ./Dockerfile20

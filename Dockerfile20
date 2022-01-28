@@ -34,14 +34,14 @@ RUN mkdir -p /cre && touch /cre/versions.txt && \
     echo "$(date +'%F %R') \t  docker-gen \t $(docker-gen -version)" >> /cre/versions.txt 
 
 COPY cre /cre
-#RUN chmod 777 /cre/glue
 
 RUN groupadd -r cregroup -g 999 && useradd -ms /bin/bash -g cregroup creglue
-USER creglue
+RUN chown creglue /cre/glue && chmod 666 /cre/glue
+RUN chown creglue /cre/data && chmod 660 /cre/data
+RUN chown creglue /cre/secrets && chmod 600 /cre/secrets
 
-RUN chmod 666 /cre/glue
-RUN chmod 600 /cre/secrets
-VOLUME ["/cre/glue"]
+USER creglue
+VOLUME ["/cre/glue" "/cre/data"]
 WORKDIR /cre/glue
 
 ENTRYPOINT ["/cre/glue-entrypoint.sh"]

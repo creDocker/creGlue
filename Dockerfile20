@@ -35,10 +35,15 @@ RUN mkdir -p /cre && touch /cre/versions.txt && \
 
 COPY cre /cre
 
-RUN groupadd -r cregroup -g 999 && useradd -ms /bin/bash -g cregroup creglue
-RUN chown creglue /cre/glue && chmod 666 /cre/glue
-RUN chown creglue /cre/data && chmod 660 /cre/data
-RUN chown creglue /cre/secrets && chmod 600 /cre/secrets
+## group not yet working
+# RUN groupadd -r cregroup -g 999 && useradd -ms /bin/bash -g cregroup creglue
+# RUN chown creglue /cre/glue && chmod 666 /cre/glue
+# RUN chown creglue /cre/data && chmod 660 /cre/data
+# RUN chown creglue /cre/secrets && chmod 600 /cre/secrets
+
+RUN chmod 666 /cre/glue
+RUN chmod 660 /cre/data
+RUN chmod 600 /cre/secrets
 
 #USER creglue
 VOLUME ["/cre/glue" "/cre/data"]

@@ -1,2 +1,3 @@
-notify: /cre/notify-create.sh /cre/glue 
+notify: /cre/notify-create.sh /cre/glue
+daily: watch -n 86307 /cre/glue-daily.sh 
 

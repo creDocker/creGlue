@@ -40,7 +40,7 @@ RUN chown creglue /cre/glue && chmod 666 /cre/glue
 RUN chown creglue /cre/data && chmod 660 /cre/data
 RUN chown creglue /cre/secrets && chmod 600 /cre/secrets
 
-USER creglue
+#USER creglue
 VOLUME ["/cre/glue" "/cre/data"]
 WORKDIR /cre/glue
 

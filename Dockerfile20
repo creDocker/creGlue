@@ -41,9 +41,9 @@ COPY cre /cre
 # RUN chown creglue /cre/data && chmod 660 /cre/data
 # RUN chown creglue /cre/secrets && chmod 600 /cre/secrets
 
-RUN chmod 666 /cre/glue
-RUN chmod 660 /cre/data
-RUN chmod 600 /cre/secrets
+RUN chmod 777 /cre/glue
+RUN chmod 770 /cre/data
+RUN chmod 700 /cre/secrets
 
 #USER creglue
 VOLUME ["/cre/glue" "/cre/data"]

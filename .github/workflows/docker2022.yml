@@ -7,6 +7,8 @@ on:
     branches:
       - 'master'
   workflow_dispatch:
+  repository_dispatch:
+    types: [dockerhub:2022.0]
 
 jobs:
   docker:

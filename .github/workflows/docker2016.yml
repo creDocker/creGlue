@@ -24,6 +24,19 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: Build for test
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          file: ./Dockerfile16
+          push: true
+          tags: tamboraorg/creglue:check16 
+
+      -
+        name: Test
+        run: |
+          docker run --volume /var/run/docker.sock:/tmp/docker.sock:ro tamboraorg/creglue:check16 /cre/glue-test.sh 
+      -
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2

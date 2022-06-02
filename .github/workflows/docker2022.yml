@@ -41,7 +41,7 @@ jobs:
           docker run --volume /var/run/docker.sock:/tmp/docker.sock:ro tamboraorg/creglue:check22 /cre/glue-test.sh 
       -
         name: Build and push
-        id: docker_build
+        id: docker_push
         uses: docker/build-push-action@v2
         with:
           file: ./Dockerfile22

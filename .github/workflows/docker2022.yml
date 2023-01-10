@@ -7,8 +7,9 @@ on:
     branches:
       - 'main'
   workflow_dispatch:
-  repository_dispatch:
-    types: ["dockerhub:2022.0"]
+  schedule:
+    # * is a special character in YAML so you have to quote this string 1:00  weekly,Saturday,1:00 #m h d/m m d/w 
+    - cron:  '00 2 * * 6'
 
 jobs:
   docker:
@@ -16,20 +17,20 @@ jobs:
     steps:
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
       -
         name: Login to DockerHub
-        uses: docker/login-action@v1 
+        uses: docker/login-action@v2 
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           file: ./Dockerfile22
           push: true

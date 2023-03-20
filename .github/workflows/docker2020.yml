@@ -35,12 +35,12 @@ jobs:
         with:
           file: ./Dockerfile20
           push: true
-          tags: tamboraorg/creglue:check20 
+          tags: credocker/creglue:check20 
 
       -
         name: Test
         run: |
-          docker run --volume /var/run/docker.sock:/tmp/docker.sock:ro tamboraorg/creglue:check20 /cre/glue-test.sh 
+          docker run --volume /var/run/docker.sock:/tmp/docker.sock:ro credocker/creglue:check20 /cre/glue-test.sh 
       -
         name: Build and push
         id: docker_push
@@ -48,5 +48,5 @@ jobs:
         with:
           file: ./Dockerfile20
           push: true
-          tags: tamboraorg/creglue:2020.0, tamboraorg/creglue:latest
+          tags: credocker/creglue:2020.0, credocker/creglue:latest
 

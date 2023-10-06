@@ -1,8 +1,8 @@
-creBuild 	 2023.09
+creBuild 	 2023.10
  creUbuntu 	 20.04.6 LTS
   UbuntuName 	 focal
   OpenSSL 1.1.1f  31 Mar 2020
   Java 	 openjdk version "11.0.20.1" 2023-08-24
   Python3 	 Python 3.8.10
-   Flask 	 Flask 2.3.3
+   Flask 	 Flask 3.0.0
   docker-gen 	 0.7.4
